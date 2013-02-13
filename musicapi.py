@@ -19,10 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import sys
 
 
-class MusicNotImplemented(Exception):
-    pass
-
-
 class Track:
     def __init__(self, track_id=None):
         self.track_id = track_id
