@@ -117,3 +117,6 @@ def instance(program):
         if sys.platform == 'win32':
             import itunes_win32
             return itunes_win32.Instance()
+        elif sys.platform == 'darwin':
+            import itunes_macosx
+            return itunes_macosx.Instance()
