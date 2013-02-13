@@ -76,6 +76,9 @@ class Playlist(musicapi.Playlist):
         for x in self.data.Tracks:
             yield Track(x.Index)
 
+    def track(self, track_id):
+        return Track(self.data.Tracks[track_id-1].Index)
+
 
 class Instance(musicapi.Instance):
     def __init__(self):

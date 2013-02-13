@@ -67,6 +67,9 @@ class Playlist:
     def tracks(self):
         """Returns a list of all Tracks."""
 
+    def track(self, track_id):
+        """Return track by identifier."""
+
 
 class Instance:
     def play(self):
