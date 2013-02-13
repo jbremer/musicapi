@@ -26,27 +26,35 @@ class Track:
     def play(self):
         """Play this track."""
 
+    @property
     def album(self):
         """Album of this track."""
 
+    @property
     def artist(self):
         """Artist of this track."""
 
+    @property
     def duration(self):
         """Duration of this track."""
 
+    @property
     def genre(self):
         """Genre of this track."""
 
+    @property
     def name(self):
         """Name of this track."""
 
+    @property
     def playcount(self):
         """Played count of this track."""
 
+    @property
     def rating(self):
         """Rating of this track."""
 
+    @property
     def year(self):
         """Year of this track."""
 
@@ -55,6 +63,7 @@ class Playlist:
     def __init__(self, playlist_id=None):
         self.playlist_id = playlist_id
 
+    @property
     def tracks(self):
         """Returns a list of all Tracks."""
 
@@ -87,12 +96,15 @@ class Instance:
     def mute(self, is_mutex):
         """Mutes or un-mutes the player."""
 
+    @property
     def progress(self):
         """Gets the progress of the song, returns (position, length)."""
 
+    @property
     def current_song(self):
         """Current song that's playing."""
 
+    @property
     def current_playlist(self):
         """Current playlist that's playing."""
 

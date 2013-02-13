@@ -31,27 +31,35 @@ class Track(musicapi.Track):
     def play(self):
         self.data.Play()
 
+    @property
     def album(self):
         return self.data.Album
 
+    @property
     def artist(self):
         return self.data.Artist
 
+    @property
     def duration(self):
         return self.data.Duration
 
+    @property
     def genre(self):
         return self.data.Genre
 
+    @property
     def name(self):
         return self.data.Name
 
+    @property
     def playcount(self):
         return self.data.PlayedCount
 
+    @property
     def rating(self):
         return self.data.Rating
 
+    @property
     def year(self):
         return self.data.Year
 
@@ -63,6 +71,7 @@ class Playlist(musicapi.Playlist):
         # TODO support for other sources
         self.data = instance.com.Sources[0].Playlists[self.playlist_id-1]
 
+    @property
     def tracks(self):
         for x in self.data.Tracks:
             yield Track(x.Index)
@@ -105,13 +114,16 @@ class Instance(musicapi.Instance):
     def mute(self, is_muted):
         self.com.Mute = bool(is_muted)
 
+    @property
     def progress(self):
         return self.com.PlayerPosition, self.com.CurrentTrack.Duration
 
+    @property
     def current_song(self):
         track = self.com.CurrentTrack
         return Track(track.Index)
 
+    @property
     def current_playlist(self):
         playlist = self.com.CurrentPlaylist
         return Playlist(playlist.Index)
