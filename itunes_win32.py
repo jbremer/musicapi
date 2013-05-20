@@ -71,10 +71,7 @@ class Playlist(musicapi.Playlist):
         # TODO support for other sources
         self.data = instance.com.Sources[0].Playlists[self.playlist_id-1]
 
-    @property
-    def tracks(self):
-        for x in self.data.Tracks:
-            yield Track(x.Index)
+        self.tracks = [Track(x.Index) for x in self.data.Tracks]
 
     def track(self, track_id):
         return Track(self.data.Tracks[track_id-1].Index)
