@@ -24,9 +24,10 @@ instance = None
 
 
 class Track(musicapi.Track):
-    def __init__(self, track_id=None):
+    def __init__(self, track_id=None, data=None):
         musicapi.Track.__init__(self, track_id)
-        self.data = instance.com.LibraryPlaylist.Tracks[track_id-1]
+
+        self.data = data or instance.com.LibraryPlaylist.Tracks[track_id-1]
 
     def play(self):
         self.data.Play()
@@ -74,7 +75,7 @@ class Playlist(musicapi.Playlist):
         self.tracks = [Track(x.Index) for x in self.data.Tracks]
 
     def track(self, track_id):
-        return Track(self.data.Tracks[track_id-1].Index)
+        return self.tracks[track_id-1]
 
 
 class Instance(musicapi.Instance):
@@ -120,8 +121,7 @@ class Instance(musicapi.Instance):
 
     @property
     def current_song(self):
-        track = self.com.CurrentTrack
-        return Track(track.Index)
+        return Track(data=self.com.CurrentTrack)
 
     @property
     def current_playlist(self):
